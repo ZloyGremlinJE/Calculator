@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 
 public class ConverterNumber {
-
+     private static final String RomeZero = "nulla";
 
     public static int convertToArabian(String Number) {
         if (Number.matches(RegExp.ArabianNumbers_1_100)) {
@@ -27,6 +27,11 @@ public class ConverterNumber {
         Arrays.fill(chars, 'I');
         String stringOfOnes = new String(chars);
 
+        if (Number == 0) {
+            return RomeZero;
+        }
+
+
         String RomeNumber = stringOfOnes.replace("IIIII", "V")
                 .replace("IIII", "IV")
                 .replace("VV", "X")
@@ -39,9 +44,7 @@ public class ConverterNumber {
         if (Number < 0) {
             RomeNumber = "-" + RomeNumber;
         }
-        if (Number == 0) {
-            RomeNumber = "nulla";
-        }
+
 
         return RomeNumber;
     }
